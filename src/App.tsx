@@ -9,7 +9,7 @@ import { Zap, ArrowRight, MousePointer2, Sparkles, ChevronDown } from "lucide-re
 const ParticleBackground = () => {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
-      {[...Array(50)].map((_, i) => (
+      {[...Array(20)].map((_, i) => (
         <motion.div
           key={i}
           className="absolute rounded-full bg-electric-blue"
@@ -126,40 +126,40 @@ export default function App() {
       </nav>
 
       {/* Hero Section */}
-      <main className="relative z-10 max-w-7xl mx-auto px-6 pt-12 pb-24 text-center flex-grow flex flex-col justify-center">
+      <main className="relative z-10 max-w-7xl mx-auto px-6 pt-8 pb-12 text-center flex-grow flex flex-col justify-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="flex flex-col items-center"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-electric-blue/10 border border-electric-blue/20 text-electric-blue text-xs font-bold uppercase tracking-widest mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-electric-blue/10 border border-electric-blue/20 text-electric-blue text-xs font-bold uppercase tracking-widest mb-4">
             <Sparkles size={14} />
             Available for new projects
           </div>
           
-          <h1 className="font-display text-6xl md:text-9xl font-bold leading-[0.85] tracking-tighter text-white mb-8 max-w-5xl">
+          <h1 className="font-display text-5xl md:text-7xl font-bold leading-[0.85] tracking-tighter text-white mb-6 max-w-4xl">
             CREATIVE GFX <br />
             <span className="lightning-text italic">BY HIMANSHU</span>
           </h1>
           
-          <p className="text-slate-400 text-lg md:text-2xl max-w-2xl mb-10 leading-relaxed">
+          <p className="text-slate-400 text-base md:text-xl max-w-xl mb-8 leading-relaxed">
             Specializing in high-impact visual identities and electric digital experiences that spark growth.
           </p>
 
-          <div className="flex flex-wrap justify-center gap-6">
+          <div className="flex flex-wrap justify-center gap-4">
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-10 py-5 bg-electric-blue text-deep-void font-bold rounded-2xl flex items-center gap-2 glow-border text-lg"
+              className="px-8 py-4 bg-electric-blue text-deep-void font-bold rounded-2xl flex items-center gap-2 glow-border text-base"
             >
-              View Portfolio <ArrowRight size={24} />
+              View Portfolio <ArrowRight size={20} />
             </motion.button>
             
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-10 py-5 bg-white/5 border border-white/10 text-white font-bold rounded-2xl hover:bg-white/10 transition-colors text-lg backdrop-blur-md"
+              className="px-8 py-4 bg-white/5 border border-white/10 text-white font-bold rounded-2xl hover:bg-white/10 transition-colors text-base backdrop-blur-md"
             >
               My Process
             </motion.button>
@@ -171,14 +171,14 @@ export default function App() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 1 }}
-          className="mt-16 flex flex-col items-center gap-2 text-slate-500"
+          className="mt-8 flex flex-col items-center gap-2 text-slate-500"
         >
-          <span className="text-xs font-bold uppercase tracking-[0.3em]">Scroll Down</span>
+          <span className="text-[10px] font-bold uppercase tracking-[0.3em]">Scroll Down</span>
           <motion.div
-            animate={{ y: [0, 8, 0] }}
+            animate={{ y: [0, 6, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           >
-            <ChevronDown className="text-electric-blue" size={32} />
+            <ChevronDown className="text-electric-blue" size={24} />
           </motion.div>
         </motion.div>
       </main>

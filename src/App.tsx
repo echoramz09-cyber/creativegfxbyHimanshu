@@ -4,7 +4,7 @@
  */
 
 import { motion } from "motion/react";
-import { Zap, ArrowRight, MousePointer2, Sparkles } from "lucide-react";
+import { Zap, ArrowRight, MousePointer2, Sparkles, ChevronDown } from "lucide-react";
 
 const ParticleBackground = () => {
   return (
@@ -50,7 +50,7 @@ const ParticleBackground = () => {
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-deep-void overflow-x-hidden">
+    <div className="min-h-screen bg-deep-void overflow-x-hidden flex flex-col">
       {/* Background Lightning Effects */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-electric-blue/10 blur-[120px] rounded-full animate-pulse" />
@@ -94,7 +94,7 @@ export default function App() {
       </div>
 
       {/* Navigation */}
-      <nav className="relative z-50 flex items-center justify-between px-6 py-8 max-w-7xl mx-auto">
+      <nav className="relative z-50 flex items-center justify-between px-6 py-8 max-w-7xl mx-auto w-full">
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -126,24 +126,24 @@ export default function App() {
       </nav>
 
       {/* Hero Section */}
-      <main className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-48 text-center">
+      <main className="relative z-10 max-w-7xl mx-auto px-6 pt-12 pb-24 text-center flex-grow flex flex-col justify-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="flex flex-col items-center"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-electric-blue/10 border border-electric-blue/20 text-electric-blue text-xs font-bold uppercase tracking-widest mb-8">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-electric-blue/10 border border-electric-blue/20 text-electric-blue text-xs font-bold uppercase tracking-widest mb-6">
             <Sparkles size={14} />
             Available for new projects
           </div>
           
-          <h1 className="font-display text-6xl md:text-9xl font-bold leading-[0.85] tracking-tighter text-white mb-10 max-w-5xl">
+          <h1 className="font-display text-6xl md:text-9xl font-bold leading-[0.85] tracking-tighter text-white mb-8 max-w-5xl">
             CREATIVE GFX <br />
             <span className="lightning-text italic">BY HIMANSHU</span>
           </h1>
           
-          <p className="text-slate-400 text-lg md:text-2xl max-w-2xl mb-12 leading-relaxed">
+          <p className="text-slate-400 text-lg md:text-2xl max-w-2xl mb-10 leading-relaxed">
             Specializing in high-impact visual identities and electric digital experiences that spark growth.
           </p>
 
@@ -164,6 +164,22 @@ export default function App() {
               My Process
             </motion.button>
           </div>
+        </motion.div>
+
+        {/* Scroll Down Indicator */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1, duration: 1 }}
+          className="mt-16 flex flex-col items-center gap-2 text-slate-500"
+        >
+          <span className="text-xs font-bold uppercase tracking-[0.3em]">Scroll Down</span>
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <ChevronDown className="text-electric-blue" size={32} />
+          </motion.div>
         </motion.div>
       </main>
 

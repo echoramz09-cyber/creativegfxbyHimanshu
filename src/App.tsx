@@ -6,6 +6,48 @@
 import { motion } from "motion/react";
 import { Zap, ArrowRight, MousePointer2, Sparkles } from "lucide-react";
 
+const ParticleBackground = () => {
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {[...Array(50)].map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute rounded-full bg-electric-blue"
+          style={{
+            width: Math.random() * 3 + 1 + "px",
+            height: Math.random() * 3 + 1 + "px",
+            boxShadow: "0 0 8px var(--color-electric-blue)",
+          }}
+          initial={{
+            x: Math.random() * 100 + "vw",
+            y: Math.random() * 100 + "vh",
+            opacity: Math.random() * 0.5 + 0.2,
+          }}
+          animate={{
+            x: [
+              Math.random() * 100 + "vw",
+              Math.random() * 100 + "vw",
+              Math.random() * 100 + "vw"
+            ],
+            y: [
+              Math.random() * 100 + "vh",
+              Math.random() * 100 + "vh",
+              Math.random() * 100 + "vh"
+            ],
+            opacity: [0.2, 0.8, 0.2],
+            scale: [1, 1.5, 1],
+          }}
+          transition={{
+            duration: Math.random() * 20 + 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        />
+      ))}
+    </div>
+  );
+};
+
 export default function App() {
   return (
     <div className="min-h-screen bg-deep-void overflow-x-hidden">
@@ -13,6 +55,8 @@ export default function App() {
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-electric-blue/10 blur-[120px] rounded-full animate-pulse" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-600/10 blur-[120px] rounded-full animate-pulse delay-700" />
+        
+        <ParticleBackground />
         
         {/* Background Animation Box */}
         <motion.div
@@ -56,10 +100,7 @@ export default function App() {
           animate={{ opacity: 1, x: 0 }}
           className="flex items-center gap-2 group cursor-pointer"
         >
-          <div className="w-10 h-10 bg-electric-blue rounded-lg flex items-center justify-center glow-border group-hover:scale-110 transition-transform">
-            <Zap className="text-deep-void fill-deep-void" size={24} />
-          </div>
-          <span className="font-display font-bold text-xl tracking-tighter text-white uppercase">Creative GFX <span className="text-electric-blue">By Himanshu</span></span>
+          <span className="font-sans font-bold text-xl tracking-tighter text-white uppercase">Creative GFX <span className="text-electric-blue">By Himanshu</span></span>
         </motion.div>
         
         <motion.div 

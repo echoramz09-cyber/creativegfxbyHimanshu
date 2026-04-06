@@ -53,8 +53,8 @@ export default function App() {
     <div className="min-h-screen bg-deep-void overflow-x-hidden flex flex-col">
       {/* Background Lightning Effects */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-electric-blue/10 blur-[120px] rounded-full animate-pulse" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-600/10 blur-[120px] rounded-full animate-pulse delay-700" />
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-electric-blue/10 blur-[60px] md:blur-[100px] rounded-full animate-pulse will-change-[opacity,transform]" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-600/10 blur-[60px] md:blur-[100px] rounded-full animate-pulse delay-700 will-change-[opacity,transform]" />
         
         <ParticleBackground />
         
@@ -75,7 +75,7 @@ export default function App() {
                 rotate: { duration: 30, repeat: Infinity, ease: "linear" },
                 scale: { duration: 8, repeat: Infinity, ease: "easeInOut" }
               }}
-              className="w-[80%] h-[80%] border border-electric-blue/20 rounded-full blur-xl"
+              className="w-[80%] h-[80%] border border-electric-blue/20 rounded-full blur-md md:blur-lg will-change-transform"
             />
             <motion.div
               animate={{ 
@@ -86,9 +86,9 @@ export default function App() {
                 rotate: { duration: 25, repeat: Infinity, ease: "linear" },
                 scale: { duration: 10, repeat: Infinity, ease: "easeInOut" }
               }}
-              className="absolute w-[60%] h-[60%] border border-cyan-400/10 rounded-full blur-2xl"
+              className="absolute w-[60%] h-[60%] border border-cyan-400/10 rounded-full blur-lg md:blur-xl will-change-transform"
             />
-            <Zap className="text-electric-blue/20 w-64 h-64 absolute drop-shadow-[0_0_30px_rgba(0,242,255,0.2)]" />
+            <Zap className="text-electric-blue/20 w-64 h-64 absolute drop-shadow-[0_0_20px_rgba(0,242,255,0.15)]" />
           </div>
         </motion.div>
       </div>
@@ -119,7 +119,7 @@ export default function App() {
         <motion.button
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
-          className="px-6 py-2.5 bg-white/5 border border-white/10 rounded-full text-sm font-semibold hover:bg-white/10 transition-colors backdrop-blur-sm"
+          className="px-6 py-2.5 bg-white/5 border border-white/10 rounded-full text-sm font-semibold hover:bg-white/10 transition-colors md:backdrop-blur-sm"
         >
           Let's Talk
         </motion.button>
@@ -159,7 +159,7 @@ export default function App() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-white/5 border border-white/10 text-white font-bold rounded-2xl hover:bg-white/10 transition-colors text-base backdrop-blur-md"
+              className="px-8 py-4 bg-white/5 border border-white/10 text-white font-bold rounded-2xl hover:bg-white/10 transition-colors text-base md:backdrop-blur-md"
             >
               My Process
             </motion.button>
@@ -184,7 +184,7 @@ export default function App() {
       </main>
 
       {/* Stats Section */}
-      <section className="relative z-10 border-y border-white/5 bg-white/[0.02] backdrop-blur-sm">
+      <section className="relative z-10 border-y border-white/5 bg-white/[0.02] md:backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6 py-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[

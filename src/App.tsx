@@ -122,23 +122,25 @@ export default function App() {
         <motion.div 
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-400"
+          className="hidden md:flex items-center gap-4 text-sm font-medium"
         >
-          {['Work', 'Services', 'About', 'Contact'].map((item) => (
-            <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-electric-blue transition-colors relative group">
-              {item}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-electric-blue transition-all group-hover:w-full" />
-            </a>
+          {[
+            { name: 'About', href: '#about' },
+            { name: 'Work', href: '#work' },
+            { name: 'Tools', href: '#services' },
+            { name: 'Contact', href: '#contact' }
+          ].map((item) => (
+            <motion.a 
+              key={item.name} 
+              href={item.href} 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-5 py-2 bg-white/5 border border-white/10 rounded-full text-slate-400 hover:text-electric-blue hover:bg-white/10 transition-all md:backdrop-blur-sm"
+            >
+              {item.name}
+            </motion.a>
           ))}
         </motion.div>
-
-        <motion.button
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          className="px-6 py-2.5 bg-white/5 border border-white/10 rounded-full text-sm font-semibold hover:bg-white/10 transition-colors md:backdrop-blur-sm"
-        >
-          Let's Talk
-        </motion.button>
       </nav>
 
       {/* Hero Section */}
@@ -173,21 +175,23 @@ export default function App() {
           </p>
 
           <div className="flex flex-wrap justify-center gap-4">
-            <motion.button
+            <motion.a
+              href="#work"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-electric-blue text-deep-void font-bold rounded-2xl flex items-center gap-2 glow-border text-base"
+              className="px-8 py-4 bg-electric-blue text-deep-void font-bold rounded-2xl flex items-center gap-2 glow-border text-base cursor-pointer"
             >
               View Portfolio <ArrowRight size={20} />
-            </motion.button>
+            </motion.a>
             
-            <motion.button
+            <motion.a
+              href="#contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-white/5 border border-white/10 text-white font-bold rounded-2xl hover:bg-white/10 transition-colors text-base md:backdrop-blur-md"
+              className="px-8 py-4 bg-white/5 border border-white/10 text-white font-bold rounded-2xl hover:bg-white/10 transition-colors text-base md:backdrop-blur-md cursor-pointer"
             >
-              My Process
-            </motion.button>
+              Social Links
+            </motion.a>
           </div>
         </motion.div>
 

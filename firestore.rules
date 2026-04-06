@@ -1,0 +1,39 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // ===============================================================
+    // Assumed Data Model
+    // ===============================================================
+    //
+    // Collection: projects
+    // Fields: title (string), category (string), imageUrl (string), order (number)
+    //
+    // Collection: tools
+    // Fields: name (string), icon (string), color (string), textColor (string), order (number)
+    //
+    // Collection: socials
+    // Fields: name (string), href (string), iconName (string), color (string), order (number)
+    //
+    // Collection: config/main
+    // Fields: heroTitle, heroSubtitle, trustedBy, aboutTitle, aboutContent1, aboutContent2, aboutRole, phone, email, location
+    //
+    // ===============================================================
+
+    // Helper Functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() && 
+        (request.auth.token.email == "richspoiz09@gmail.com" || 
+         request.auth.token.email == "himanshugfx@himanshu.gfx");
+    }
+
+    // Default deny
+    match /{document=**} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+  }
+}

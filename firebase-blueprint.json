@@ -1,0 +1,79 @@
+{
+  "entities": {
+    "Project": {
+      "title": "Project",
+      "description": "A showcase project in the portfolio",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "The title of the project" },
+        "category": { "type": "string", "description": "The category (e.g., Branding, GFX)" },
+        "imageUrl": { "type": "string", "description": "The URL of the project image (16:9)" },
+        "order": { "type": "number", "description": "The display order" }
+      },
+      "required": ["title", "category", "imageUrl", "order"]
+    },
+    "Tool": {
+      "title": "Tool",
+      "description": "A tool used by the designer",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "The name of the tool" },
+        "icon": { "type": "string", "description": "The icon text (e.g., Ps, Ai)" },
+        "color": { "type": "string", "description": "Tailwind background color class" },
+        "textColor": { "type": "string", "description": "Tailwind text color class" },
+        "order": { "type": "number", "description": "The display order" }
+      },
+      "required": ["name", "icon", "color", "textColor", "order"]
+    },
+    "Social": {
+      "title": "Social Link",
+      "description": "A social media link",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "The name of the platform" },
+        "href": { "type": "string", "description": "The URL to the profile" },
+        "iconName": { "type": "string", "description": "The Lucide icon name" },
+        "color": { "type": "string", "description": "Tailwind hover color class" },
+        "order": { "type": "number", "description": "The display order" }
+      },
+      "required": ["name", "href", "iconName", "color", "order"]
+    },
+    "SiteConfig": {
+      "title": "Site Configuration",
+      "description": "Global settings and text for the site",
+      "type": "object",
+      "properties": {
+        "heroTitle": { "type": "string" },
+        "heroSubtitle": { "type": "string" },
+        "trustedBy": { "type": "number" },
+        "aboutTitle": { "type": "string" },
+        "aboutContent1": { "type": "string" },
+        "aboutContent2": { "type": "string" },
+        "aboutRole": { "type": "string" },
+        "aboutImageUrl": { "type": "string" },
+        "aboutImageScale": { "type": "number" },
+        "phone": { "type": "string" },
+        "email": { "type": "string" },
+        "location": { "type": "string" }
+      }
+    }
+  },
+  "firestore": {
+    "projects": {
+      "schema": { "$ref": "Project" },
+      "description": "Collection of projects"
+    },
+    "tools": {
+      "schema": { "$ref": "Tool" },
+      "description": "Collection of tools"
+    },
+    "socials": {
+      "schema": { "$ref": "Social" },
+      "description": "Collection of social links"
+    },
+    "config/main": {
+      "schema": { "$ref": "SiteConfig" },
+      "description": "Main site configuration"
+    }
+  }
+}
